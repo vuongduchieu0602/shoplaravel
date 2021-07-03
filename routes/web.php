@@ -46,4 +46,5 @@ Route::prefix('admin')->group(function(){
 Route::get('danh-muc-san-pham/{id}',[CategoryController::class,'show_category_home'])->name('show_category_home');
 Route::get('thuong-hieu-san-pham/{id}',[BrandController::class,'show_brand_home'])->name('show_brand_home');
 
+Route::get();
 
