@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\Http\Controllers\AdminController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\HomeController;
 // use App\Http\Controllers\CategoryController;
@@ -8,17 +9,16 @@ use Illuminate\Support\Facades\Route;
 
 //Frontend
 Route::get('/',[HomeController::class,'index'])->name('home');
-Route::get('/trang-chu',[HomeController::class,'index'])->name('home');
+Route::get('/trang-chu', [HomeController::class, 'index'])->name('home');
+
 Route::get('/lien-he',[HomeController::class,'contact'])->name('contact');
-
-
 //Backend
-Route::prefix('admin')->group(function(){
-    Route::get('/',[AdminController::class,'login'])->name('login');
-    Route::get('login',[AdminController::class,'login'])->name('login');
-    Route::post('login',[AdminController::class,'dashboard'])->name('dashboard');
-    Route::get('dashboard',[AdminController::class,'getdashboard'])->name('getdashboard');
 
+Route::get('admin/dang-nhap',[AdminController::class,'login'])->name('login');
+Route::post('admin/login',[AdminController::class,'dashboard'])->name('dashboard');
+Route::prefix('admin')->middleware('dashboard')->group(function(){
+
+    Route::get('dashboard',[AdminController::class,'getdashboard'])->name('getdashboard');
     Route::get('logout',[AdminController::class,'logout'])->name('logout');
     //CategoryProduct
     Route::get('add-category',[CategoryController::class,'add_category'])->name('add_category');
@@ -46,5 +46,10 @@ Route::prefix('admin')->group(function(){
 Route::get('danh-muc-san-pham/{id}',[CategoryController::class,'show_category_home'])->name('show_category_home');
 Route::get('thuong-hieu-san-pham/{id}',[BrandController::class,'show_brand_home'])->name('show_brand_home');
 
-Route::get();
+Route::get('chi-tiet-san-pham/{id}',[ProductController::class,'detail_product'])->name('detail_product');
+//Cart
+Route::get('show_cart',[CartController::class,'show_cart'])->name('show_cart');
+Route::post('save-cart',[CartController::class,'save_cart'])->name('save_cart');
+// Auth::routes();
+
 

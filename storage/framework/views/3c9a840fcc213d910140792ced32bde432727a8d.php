@@ -2,6 +2,7 @@
 <div class="features_items"><!--features_items-->
     <h2 class="title text-center">Danh mục sản phẩm</h2>
     <?php $__currentLoopData = $category_by_id; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <a href="<?php echo e(route('detail_product',['id'=>$item->id])); ?>">
     <div class="col-sm-4">
         <div class="product-image-wrapper">
             <div class="single-products">
@@ -21,6 +22,7 @@
             </div>
         </div>
     </div>
+    </a>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 </div><!--features_items-->

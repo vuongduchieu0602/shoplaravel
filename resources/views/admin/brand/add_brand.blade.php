@@ -1,4 +1,5 @@
 @extends('admin.admin_dashboard')
+
 @section('admin_content')
 <div class="row">
     <div class="col-lg-12">

@@ -110,5 +110,21 @@ class ProductController extends Controller
         Product::destroy($id);
         return redirect()->route('all_product')->with('thongbao','Xóa thành công sản phẩm');
     }
+    public function detail_product($id){
+        $category = CategoryProduct::all();
+        $brand = Brand::all();
+        $detail_product = Product::where('id',$id)->get();
+        foreach($detail_product as $key => $value){
+            $category_id = $value -> category_id;
+        }
+        $related_product = Product::where('category_id',$category_id)->whereNotIn('id',[$id])->get();
+        $dataView = [
+            'category' => $category,
+            'brand' => $brand,
+            'detail_product' => $detail_product,
+            'related_product' =>$related_product,
+        ];
+        return view('pages.product.show_detail',$dataView);
+    }
 
 }

@@ -6,6 +6,7 @@
 <div class="features_items"><!--features_items-->
     <h2 class="title text-center">Sản phẩm mới nhất</h2>
     @foreach ($product as $item)
+    <a href="{{ route('detail_product',['id'=>$item->id]) }}">
     <div class="col-sm-4">
         <div class="product-image-wrapper">
             <div class="single-products">
@@ -31,11 +32,12 @@
             </div>
         </div>
     </div>
+    </a>
     @endforeach
 
 </div><!--features_items-->
 
-<div class="category-tab"><!--category-tab-->
+{{-- <div class="category-tab"><!--category-tab-->
     <div class="col-sm-12">
         <ul class="nav nav-tabs">
             <li class="active"><a href="#tshirt" data-toggle="tab">T-Shirt</a></li>
@@ -417,5 +419,5 @@
             <i class="fa fa-angle-right"></i>
           </a>
     </div>
-</div><!--/recommended_items-->
+</div><!--/recommended_items--> --}}
 @endsection

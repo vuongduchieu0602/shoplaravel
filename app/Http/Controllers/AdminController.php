@@ -7,12 +7,16 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
+
+
     public function login(){
         return view('admin.admin_login');
     }
+
     public function getdashboard(){
         return view('admin.admin_dashboard');
     }
+
     public function dashboard(Request $request){
         $this->validate($request,[
             'email'=>'required',

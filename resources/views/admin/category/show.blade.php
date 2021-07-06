@@ -3,6 +3,7 @@
 <div class="features_items"><!--features_items-->
     <h2 class="title text-center">Danh mục sản phẩm</h2>
     @foreach ($category_by_id as $item)
+    <a href="{{ route('detail_product',['id'=>$item->id]) }}">
     <div class="col-sm-4">
         <div class="product-image-wrapper">
             <div class="single-products">
@@ -28,6 +29,7 @@
             </div>
         </div>
     </div>
+    </a>
     @endforeach
 
 </div><!--features_items-->

@@ -34,7 +34,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Mô tả sản phẩm</label>
-                            <textarea name="desc" id="" cols="30" rows="10" style="resize:none" class="form-control" placeholder="Mô tả sản phẩm"></textarea>
+                            <textarea name="desc" id="ckeditor1" cols="30" rows="10" style="resize:none" class="form-control" placeholder="Mô tả sản phẩm"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Giá sản phẩm</label>

@@ -9,7 +9,20 @@ use App\Models\Product;
 
 class HomeController extends Controller
 {
-    public function index(){
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
+    {
         $category = CategoryProduct::all();
         $brand = Brand::all();
         $product = Product::orderBy('id','desc')->limit(6)->get();
@@ -20,7 +33,17 @@ class HomeController extends Controller
         ];
         return view('pages.home',$dataView);
     }
+
     public function contact(){
-        return view('pages.contact');
+        $category = CategoryProduct::all();
+        $brand = Brand::all();
+        $product = Product::orderBy('id','desc')->limit(6)->get();
+        $dataView = [
+            'category'=>$category,
+            'brand'=>$brand,
+            'product'=>$product,
+        ];
+        return view('pages.contact',$dataView);
     }
+
 }
